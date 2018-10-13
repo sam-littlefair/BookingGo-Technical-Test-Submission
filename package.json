@@ -1,0 +1,24 @@
+{
+  "name": "bookinggo",
+  "version": "1.0.0",
+  "description": "BookingGo Technical Test",
+  "main": "part1.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "request": "^2.87.0",
+    "requestretry": "^3.0.1",
+    "supertest": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "sam-littlefair",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sam-littlefair/BookingGo-Technical-Test-Submission.git"
+  }
+}
