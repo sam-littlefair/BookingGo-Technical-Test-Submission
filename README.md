@@ -36,10 +36,10 @@ node part2
 ```
 
 When the server has started, visit for example:  
-`http://localhost:8080/api?pickup=51.470020,-0.454295&dropoff=51.470020,-0.454295&passengers=2`  
+http://localhost:8080/api?pickup=51.470020,-0.454295&dropoff=51.470020,-0.454295&passengers=2
 
 Optionally you can add a `pretty` parameter to pretty print the JSON:  
-`http://localhost:8080/api?pickup=51.470020,-0.454295&dropoff=51.470020,-0.454295&passengers=2&pretty=1` 
+http://localhost:8080/api?pickup=51.470020,-0.454295&dropoff=51.470020,-0.454295&passengers=2&pretty=1
 
 Sample output:
 ```json
