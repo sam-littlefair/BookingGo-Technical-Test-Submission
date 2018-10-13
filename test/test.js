@@ -2,7 +2,7 @@ var request = require('supertest');
 var expect = require('chai').expect;
 
 describe('UNIT TESTS', function () {
-    let compare, serverError, parse;
+    let compare, serverError, parse, print;
     beforeEach(function () {
         compare = require('../part2').comparePrice;
         serverError = require('../part2').serverError;
@@ -30,33 +30,21 @@ describe('UNIT TESTS', function () {
     });
 
     it('Parse function: New supplier cheaper', function testNewSupplierCheaper(done) {
-        let existing_results = [{
-            "car_type": "PEOPLE_CARRIER",
-            "supplier": "Eric's Taxis",
-            "price": 200
-        }, {"car_type": "LUXURY_PEOPLE_CARRIER", "supplier": "Dave's Taxis", "price": 300}];
+        let existing_results = [{"car_type": "PEOPLE_CARRIER", "supplier": "Eric's Taxis", "price": 200}, {"car_type": "LUXURY_PEOPLE_CARRIER", "supplier": "Dave's Taxis", "price": 300}];
         let new_results = {"options": [{"car_type": "PEOPLE_CARRIER", "supplier": "Jeff's Taxis", "price": 100}]};
         expect(JSON.stringify(parse(new_results, "Jeff's Taxis", 2, existing_results))).to.equal('[{"car_type":"PEOPLE_CARRIER","supplier":"Jeff\'s Taxis","price":100},{"car_type":"LUXURY_PEOPLE_CARRIER","supplier":"Dave\'s Taxis","price":300}]');
         done();
     });
 
     it('Parse function: New supplier more expensive', function testNewSupplierExpensive(done) {
-        let existing_results = [{
-            "car_type": "PEOPLE_CARRIER",
-            "supplier": "Eric's Taxis",
-            "price": 200
-        }, {"car_type": "LUXURY_PEOPLE_CARRIER", "supplier": "Dave's Taxis", "price": 300}];
+        let existing_results = [{"car_type": "PEOPLE_CARRIER", "supplier": "Eric's Taxis", "price": 200}, {"car_type": "LUXURY_PEOPLE_CARRIER", "supplier": "Dave's Taxis", "price": 300}];
         let new_results = {"options": [{"car_type": "PEOPLE_CARRIER", "supplier": "Jeff's Taxis", "price": 5000}]};
         expect(JSON.stringify(parse(new_results, "Jeff's Taxis", 2, existing_results))).to.equal('[{"car_type":"PEOPLE_CARRIER","supplier":"Eric\'s Taxis","price":200},{"car_type":"LUXURY_PEOPLE_CARRIER","supplier":"Dave\'s Taxis","price":300}]');
         done();
     });
 
     it('Parse function: New car type to add', function testNewCarType(done) {
-        let existing_results = [{
-            "car_type": "PEOPLE_CARRIER",
-            "supplier": "Eric's Taxis",
-            "price": 200
-        }, {"car_type": "LUXURY_PEOPLE_CARRIER", "supplier": "Dave's Taxis", "price": 300}];
+        let existing_results = [{"car_type": "PEOPLE_CARRIER", "supplier": "Eric's Taxis", "price": 200}, {"car_type": "LUXURY_PEOPLE_CARRIER", "supplier": "Dave's Taxis", "price": 300}];
         let new_results = {"options": [{"car_type": "MINIBUS", "supplier": "Jeff's Taxis", "price": 1250}]};
         expect(JSON.stringify(parse(new_results, "Jeff's Taxis", 2, existing_results))).to.equal('[{"car_type":"PEOPLE_CARRIER","supplier":"Eric\'s Taxis","price":200},{"car_type":"LUXURY_PEOPLE_CARRIER","supplier":"Dave\'s Taxis","price":300},{"car_type":"MINIBUS","supplier":"Jeff\'s Taxis","price":1250}]');
         done();
