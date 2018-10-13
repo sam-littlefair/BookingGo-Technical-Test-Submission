@@ -7,8 +7,7 @@
 `git clone https://github.com/sam-littlefair/BookingGo-Technical-Test-Submission.git`
 
 3. In the working directory run command:
-`npm install`   
-
+`npm install` This will automatically download the dependencies.
 
 ## Part 1
 
