@@ -116,7 +116,7 @@ function parseResult(json, supplier, results_json) {
                 results_json.push({"car_type": option.car_type, "supplier": supplier, "price": option.price})
         }
     }
-	return results_json;
+    return results_json;
 }
 
 //Finally, sort the JSON array using custom comparison method for price and print.
@@ -145,5 +145,5 @@ function comparePrice(a, b) {
 //If problem with inputs, log the error and exit.
 function throwError(err) {
     console.error(err);
-	process.exit();
+    process.exit();
 }
